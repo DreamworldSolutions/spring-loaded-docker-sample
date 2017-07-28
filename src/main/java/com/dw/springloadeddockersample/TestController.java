@@ -14,9 +14,10 @@ public class TestController {
   private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
   @RequestMapping(value = "/test", method = RequestMethod.GET)
-  @ResponseStatus(value = HttpStatus.NO_CONTENT)
+  @ResponseStatus(value = HttpStatus.OK)
   @PreAuthorize("hasAnyRole('ROLE_USER')")
-  public void test() {
+  public String test() {
     logger.debug("test() :: execute");
+    return "Hello\n";
   }
 }
